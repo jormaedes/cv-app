@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function EducationForm({ education, onUpdate }) {
+function EducationForm({ education, onUpdate, onAdd, onRemove }) {
 	const [editingIndex, setEditingIndex] = useState(
 		education.map(() => false)
 	);
@@ -20,6 +20,18 @@ function EducationForm({ education, onUpdate }) {
 			return updated;
 		});
 	};
+
+	const handleAdd = () => {
+		onAdd();
+		setEditingIndex(prev => [...prev, true]);
+	};
+
+	const handleRemove = (index) => {
+		onRemove(index);
+		setEditingIndex(prev => prev.filter((_, i) => i !== index));
+	};
+
+	const canDelete = education.length > 1;
 
 	return (
 		<div className="form-list">
@@ -45,9 +57,16 @@ function EducationForm({ education, onUpdate }) {
 								<span className="form-view__value">{item.details}</span>
 							</div>
 
-							<button className="btn btn--edit" onClick={() => startEditing(index)}>
-								Edit
-							</button>
+							<div className="form-view__actions">
+								<button className="btn btn--edit" onClick={() => startEditing(index)}>
+									Edit
+								</button>
+								{canDelete && (
+									<button className="btn btn--delete" onClick={() => handleRemove(index)}>
+										Delete
+									</button>
+								)}
+							</div>
 						</div>
 
 					) : (
@@ -92,14 +111,23 @@ function EducationForm({ education, onUpdate }) {
 								/>
 							</div>
 
-							<button className="btn btn--save" onClick={() => stopEditing(index)}>
-								Save
-							</button>
+							<div className="form-edit__actions">
+								<button className="btn btn--save" onClick={() => stopEditing(index)}>
+									Save
+								</button>
+								<button className="btn btn--cancel" onClick={() => handleRemove(index)}>
+									Cancel
+								</button>
+							</div>
 						</div>
 					)}
 
 				</div>
 			))}
+
+			<button className="btn btn--add" onClick={handleAdd}>
+				+ Add Education
+			</button>
 		</div>
 	);
 }
