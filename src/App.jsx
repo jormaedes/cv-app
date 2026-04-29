@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import person from './data.js';
 import Sidebar from './components/Sidebar.jsx';
+import EditorPanel from './components/EditorPanel.jsx';
 import CVPreview from './components/CVPreview.jsx';
 import './App.css';
 
@@ -33,6 +34,13 @@ function App() {
 			<Sidebar
 				activeSection={activeSection}
 				setActiveSection={setActiveSection}
+			/>
+			<EditorPanel
+				activeSection={activeSection}
+				cvData={cvData}
+				updateBasicInfo={updateBasicInfo}
+				updateEducation={updateEducation}
+				updateExperience={updateExperience}
 			/>
 			<CVPreview cvData={cvData} />
 		</div>
