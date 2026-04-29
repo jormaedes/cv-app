@@ -1,6 +1,8 @@
-import { useState } from 'react'
-import person from './data'
-import './App.css'
+import { useState } from 'react';
+import person from './data.js';
+import Sidebar from './components/Sidebar.jsx';
+import CVPreview from './components/CVPreview.jsx';
+import './App.css';
 
 function App() {
 	const [cvData, setCvData] = useState(person);
@@ -21,16 +23,19 @@ function App() {
 	const updateExperience = (index, field, value) => {
 		setCvData(prev => {
 			const updated = [...prev.experiences];
-			updated[index] = {...updated[index], [field]: value};
-			return { ...prev, experiences: updated};
+			updated[index] = { ...updated[index], [field]: value };
+			return { ...prev, experiences: updated };
 		});
 	}
 
-
 	return (
-		<>
-			<h1>{person.fullname}</h1>
-		</>
+		<div className="app">
+			<Sidebar
+				activeSection={activeSection}
+				setActiveSection={setActiveSection}
+			/>
+			<CVPreview cvData={cvData} />
+		</div>
 	)
 }
 
