@@ -16,7 +16,7 @@ function Sidebar({activeSection, setActiveSection}) {
 						<button
 							key={section.id}
 							className={`sidebar__item ${activeSection === section.id ? 'sidebar__item--active' : ''}`}
-							onClick={setActiveSection(section.id)}
+							onClick={() => setActiveSection(section.id)}
 						>
 							{section.label}
 						</button>
