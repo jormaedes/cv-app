@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../../styles/editor.css';
 
 function BasicInfoForm({ data, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);

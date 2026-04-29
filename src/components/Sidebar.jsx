@@ -1,3 +1,5 @@
+import '../styles/sidebar.css';
+
 function Sidebar({activeSection, setActiveSection}) {
 	const sections = [
 		{ id: 'basic', label: 'Basic Info'},

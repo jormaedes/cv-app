@@ -1,6 +1,7 @@
 import BasicInfoForm from './editor/BasicInfoForm.jsx';
 import EducationForm from './editor/EducationForm.jsx';
 import ExperienceForm from './editor/ExperienceForm.jsx';
+import '../styles/editor.css';
 
 function EditorPanel({
   activeSection, cvData,

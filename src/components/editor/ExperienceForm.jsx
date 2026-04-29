@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../../styles/editor.css';
 
 function ExperienceForm({ experiences, onUpdate, onAdd, onRemove }) {
 	const [editingIndex, setEditingIndex] = useState(

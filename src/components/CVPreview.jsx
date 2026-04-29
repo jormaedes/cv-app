@@ -2,6 +2,7 @@ import PreviewHeader from './preview/PreviewHeader.jsx';
 import PreviewAbout from './preview/PreviewAbout.jsx';
 import PreviewEducation from './preview/PreviewEducation.jsx';
 import PreviewExperience from './preview/PreviewExperience.jsx';
+import '../styles/preview.css';
 
 function CVPreview({ cvData }) {
 	return (
