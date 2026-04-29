@@ -1,51 +1,51 @@
 const person = {
-  fullname: "Jormaedes Luís",
-  title: "Software Engineer",
-  email: "jormaedes@gmail.com",
-  phone: "+244 923 456 789",
-  location: "Luanda, Angola",
-  github: "github.com/jormaedes",
-  linkedin: "linkedin.com/in/jormaedes",
-  about:
-    "Systems-minded software engineer with experience in low-level programming and full-stack web development. Passionate about building tools with real-world impact, especially for African users and markets. Currently deepening expertise in C, JavaScript, and React.",
+	fullname: "John Doe",
+	title: "Full-Stack Developer",
+	email: "johndoe@example.com",
+	phone: "+123 456 789 000",
+	location: "New York, USA",
+	github: "github.com/johndoe",
+	linkedin: "linkedin.com/in/johndoe",
+	about:
+		"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 
-  education: [
-    {
-      school: "42 Luanda",
-      degree: "Software Engineering",
-      start: "2024",
-      end: "Present",
-      details:
-        "Peer-to-peer, project-based curriculum focused on low-level systems programming. Completed projects including a ray-casting 3D engine (cub3D) in C, a C++ OOP module series, and a WebRTC peer-to-peer video chat application.",
-    },
-    {
-      school: "The Odin Project",
-      degree: "Full-Stack JavaScript",
-      start: "2023",
-      end: "Present",
-      details:
-        "Self-directed full-stack curriculum covering HTML, CSS, JavaScript, React, Node.js and computer science fundamentals. Built production-ready projects including a Battleship game with TDD, a Binary Search Tree, and a dynamic restaurant page.",
-    },
-  ],
+	education: [
+		{
+			school: "University of Technology",
+			degree: "Computer Science",
+			start: "2020",
+			end: "2024",
+			details:
+				"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		},
+		{
+			school: "Online Coding Bootcamp",
+			degree: "Web Development",
+			start: "2019",
+			end: "2020",
+			details:
+				"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+		},
+	],
 
-  experiences: [
-    {
-      enterprise: "WebRTC P2P Video Chat",
-      position: "Lead Developer",
-      start: "Jan 2024",
-      end: "Mar 2024",
-      responsibilities:
-        "Built a real-time peer-to-peer video chat application using WebRTC, Node.js, Express and WebSockets. Implemented a multi-theme UI with glassmorphism design, resolved mirroring bugs, and deployed to Render. Collaborated with two teammates and credited all contributors in the README.",
-    },
-    {
-      enterprise: "42 Luanda — cub3D",
-      position: "Systems Programmer",
-      start: "Mar 2024",
-      end: "Present",
-      responsibilities:
-        "Developing a Wolfenstein-style 3D ray-casting engine in C using the miniLibX graphics library. Responsible for project architecture, map parsing, texture loading, and rendering logic. All code written under strict 42 Norma style constraints.",
-    },
-  ],
+	experiences: [
+		{
+			enterprise: "Tech Solutions Inc.",
+			position: "Senior Web Developer",
+			start: "Jan 2022",
+			end: "Present",
+			responsibilities:
+				"Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
+		},
+		{
+			enterprise: "Creative Digital Agency",
+			position: "Junior Developer",
+			start: "Jun 2020",
+			end: "Dec 2021",
+			responsibilities:
+				"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+		},
+	],
 };
 
 export default person;
