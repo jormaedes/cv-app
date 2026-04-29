@@ -29,6 +29,40 @@ function App() {
 		});
 	}
 
+	const addEducation = () => {
+		setCvData(prev => ({
+			...prev,
+			education: [
+				...prev.education,
+				{ school: '', degree: '', start: '', end: '', details: '' }
+			]
+		}));
+	};
+
+	const addExperience = () => {
+		setCvData(prev => ({
+			...prev,
+			experiences: [
+				...prev.experiences,
+				{ enterprise: '', position: '', start: '', end: '', responsibilities: '' }
+			]
+		}));
+	};
+
+	const removeEducation = (index) => {
+		setCvData(prev => ({
+			...prev,
+			education: prev.education.filter((_, i) => i !== index)
+		}));
+	};
+
+	const removeExperience = (index) => {
+		setCvData(prev => ({
+			...prev,
+			experiences: prev.experiences.filter((_, i) => i !== index)
+		}));
+	};
+
 	return (
 		<div className="app">
 			<Sidebar
@@ -41,6 +75,10 @@ function App() {
 				updateBasicInfo={updateBasicInfo}
 				updateEducation={updateEducation}
 				updateExperience={updateExperience}
+				addEducation={addEducation}
+				addExperience={addExperience}
+				removeEducation={removeEducation}
+				removeExperience={removeExperience}
 			/>
 			<CVPreview cvData={cvData} />
 		</div>

@@ -2,8 +2,14 @@ import BasicInfoForm from './editor/BasicInfoForm.jsx';
 import EducationForm from './editor/EducationForm.jsx';
 import ExperienceForm from './editor/ExperienceForm.jsx';
 
-function EditorPanel({ activeSection, cvData, updateBasicInfo, updateEducation, updateExperience }) {
-	
+function EditorPanel({
+  activeSection, cvData,
+  updateBasicInfo,
+  updateEducation, updateExperience,
+  addEducation, addExperience,
+  removeEducation, removeExperience
+}) {
+
 	const sectionInfo = {
 		basic: {
 			title: 'Basic Information',
@@ -21,32 +27,30 @@ function EditorPanel({ activeSection, cvData, updateBasicInfo, updateEducation, 
 
 	const renderForm = () => {
 		if (activeSection === 'basic') {
-			return (
-				<BasicInfoForm
-					data={cvData}
-					onUpdate={updateBasicInfo}
-				/>
-			);
+			return <BasicInfoForm data={cvData} onUpdate={updateBasicInfo} />;
 		}
-
 		if (activeSection === 'education') {
 			return (
 				<EducationForm
 					education={cvData.education}
 					onUpdate={updateEducation}
+					onAdd={addEducation}
+					onRemove={removeEducation}
 				/>
 			);
 		}
-
 		if (activeSection === 'experience') {
 			return (
 				<ExperienceForm
 					experiences={cvData.experiences}
 					onUpdate={updateExperience}
+					onAdd={addExperience}
+					onRemove={removeExperience}
 				/>
 			);
 		}
 	};
+
 
 	return (
 		<div className="editor-panel">
