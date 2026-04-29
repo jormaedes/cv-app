@@ -3,6 +3,7 @@ import person from './data.js';
 import Sidebar from './components/Sidebar.jsx';
 import EditorPanel from './components/EditorPanel.jsx';
 import CVPreview from './components/CVPreview.jsx';
+import Header from './components/Header.jsx';
 import './App.css';
 
 function App() {
@@ -65,22 +66,27 @@ function App() {
 
 	return (
 		<div className="app">
-			<Sidebar
-				activeSection={activeSection}
-				setActiveSection={setActiveSection}
-			/>
-			<EditorPanel
-				activeSection={activeSection}
-				cvData={cvData}
-				updateBasicInfo={updateBasicInfo}
-				updateEducation={updateEducation}
-				updateExperience={updateExperience}
-				addEducation={addEducation}
-				addExperience={addExperience}
-				removeEducation={removeEducation}
-				removeExperience={removeExperience}
-			/>
-			<CVPreview cvData={cvData} />
+			<Header />
+			<div className="app-body">
+
+				<Sidebar
+					activeSection={activeSection}
+					setActiveSection={setActiveSection}
+				/>
+				<EditorPanel
+					activeSection={activeSection}
+					cvData={cvData}
+					updateBasicInfo={updateBasicInfo}
+					updateEducation={updateEducation}
+					updateExperience={updateExperience}
+					addEducation={addEducation}
+					addExperience={addExperience}
+					removeEducation={removeEducation}
+					removeExperience={removeExperience}
+				/>
+				<CVPreview cvData={cvData} />
+			</div>
+
 		</div>
 	)
 }
