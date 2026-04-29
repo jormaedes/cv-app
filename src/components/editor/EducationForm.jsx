@@ -4,6 +4,7 @@ function EducationForm({ education, onUpdate, onAdd, onRemove }) {
 	const [editingIndex, setEditingIndex] = useState(
 		education.map(() => false)
 	);
+	const [newIndexes, setNewIndexes] = useState(new Set());
 
 	const startEditing = (index) => {
 		setEditingIndex(prev => {
@@ -19,16 +20,42 @@ function EducationForm({ education, onUpdate, onAdd, onRemove }) {
 			updated[index] = false;
 			return updated;
 		});
+		setNewIndexes(prev => {
+			const updated = new Set(prev);
+			updated.delete(index);
+			return updated;
+		});
 	};
 
 	const handleAdd = () => {
+		const newIndex = education.length;
 		onAdd();
 		setEditingIndex(prev => [...prev, true]);
+		setNewIndexes(prev => new Set([...prev, newIndex]));
+	};
+
+	const handleCancel = (index) => {
+		if (newIndexes.has(index)) {
+			onRemove(index);
+			setEditingIndex(prev => prev.filter((_, i) => i !== index));
+			setNewIndexes(prev => {
+				const updated = new Set(prev);
+				updated.delete(index);
+				return updated;
+			});
+		} else {
+			stopEditing(index);
+		}
 	};
 
 	const handleRemove = (index) => {
 		onRemove(index);
 		setEditingIndex(prev => prev.filter((_, i) => i !== index));
+		setNewIndexes(prev => {
+			const updated = new Set(prev);
+			updated.delete(index);
+			return updated;
+		});
 	};
 
 	const canDelete = education.length > 1;
@@ -115,7 +142,7 @@ function EducationForm({ education, onUpdate, onAdd, onRemove }) {
 								<button className="btn btn--save" onClick={() => stopEditing(index)}>
 									Save
 								</button>
-								<button className="btn btn--cancel" onClick={() => handleRemove(index)}>
+								<button className="btn btn--cancel" onClick={() => handleCancel(index)}>
 									Cancel
 								</button>
 							</div>
