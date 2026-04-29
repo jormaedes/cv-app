@@ -1,0 +1,193 @@
+/* ─── ÁREA DO PREVIEW ────────────────────────────── */
+.cv-preview {
+  flex: 1;
+  background-color: var(--color-bg);
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-10);
+}
+
+/* ─── O DOCUMENTO ────────────────────────────────── */
+.cv-document {
+  background-color: var(--color-surface);
+  width: 100%;
+  max-width: 680px;
+  min-height: 900px;
+  padding: var(--space-12) var(--space-12);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  overflow: auto;
+}
+
+/* ─── HEADER DO CV ───────────────────────────────── */
+.preview-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding-bottom: var(--space-6);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.preview-header__name {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.preview-header__title {
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.preview-header__contacts {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+
+.preview-header__contacts span::after {
+  content: '|';
+  margin-left: var(--space-4);
+  color: var(--color-border);
+}
+
+.preview-header__contacts span:last-child::after {
+  content: '';
+}
+
+.preview-header__links {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* ─── SECÇÕES ────────────────────────────────────── */
+.preview-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.preview-section__title {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-neutral);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.preview-section__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ─── ITEMS (educação / experiência) ─────────────── */
+.preview-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.preview-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.preview-item__name {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.preview-item__dates {
+  font-size: var(--font-size-xs);
+  color: var(--color-neutral);
+  font-weight: 500;
+}
+
+.preview-item__sub {
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
+  font-weight: 500;
+}
+
+.preview-item__details {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-top: var(--space-1);
+}
+
+/* ─── IMPRESSÃO ──────────────────────────────────── */
+@media print {
+  .app-header,
+  .sidebar,
+  .editor-panel {
+    display: none !important;
+  }
+
+  .cv-preview {
+    padding: 0;
+    background: white;
+  }
+
+  .cv-document {
+    box-shadow: none;
+    border-radius: 0;
+    max-width: 100%;
+  }
+}
+
+/* ─── TABLET ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .cv-preview {
+    padding: var(--space-6);
+  }
+
+  .cv-document {
+    padding: var(--space-8);
+  }
+}
+
+/* ─── MOBILE ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cv-preview {
+    padding: var(--space-4);
+  }
+
+  .cv-document {
+    padding: var(--space-6) var(--space-5);
+    min-height: unset;
+  }
+
+  .preview-header__contacts {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .preview-header__contacts span::after {
+    display: none;
+  }
+
+  .preview-item__header {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}

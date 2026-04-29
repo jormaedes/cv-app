@@ -1,0 +1,115 @@
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  padding: var(--space-8) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.sidebar__logo {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-primary);
+}
+
+.sidebar__label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-neutral);
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  color: var(--color-neutral);
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar__item:hover {
+  background-color: var(--color-secondary-soft);
+  color: var(--color-primary);
+}
+
+.sidebar__item--active {
+  background-color: var(--color-secondary-soft);
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* ─── TABLET ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 60px;
+    padding: var(--space-6) var(--space-2);
+    align-items: center;
+  }
+
+  .sidebar__logo,
+  .sidebar__label {
+    display: none;
+  }
+
+  .sidebar__item {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+    border-radius: var(--radius-md);
+  }
+
+  /* esconde o texto, mantém só o ícone */
+  .sidebar__item span:not(.sidebar__icon) {
+    display: none;
+  }
+}
+
+/* ─── MOBILE ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: 52px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--space-4);
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    gap: var(--space-2);
+  }
+
+  .sidebar__logo,
+  .sidebar__label {
+    display: none;
+  }
+
+  nav {
+    flex-direction: row;
+    gap: var(--space-2);
+  }
+
+  .sidebar__item {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-xs);
+    width: auto;
+    height: auto;
+  }
+}
